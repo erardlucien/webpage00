@@ -23,6 +23,10 @@
         margin: 0 0 0 2rem;
     }
 
+    .navLink:hover {
+        box-shadow: 0 1rem 2rem white;
+    }
+
     .navLink:focus {
         box-shadow: 0 1rem 2rem black;
         outline: none;

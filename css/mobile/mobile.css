@@ -140,10 +140,6 @@ span.line-2 {
     transition: all 400ms ease-in-out 4ms;
 }
 
-.navLink:hover {
-    box-shadow: 0 1rem 2rem white;
-}
-
 .navLink:active {
     background-color: black;
     color: white;
