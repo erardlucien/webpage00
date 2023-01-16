@@ -1,0 +1,227 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: darkgray;
+}
+
+body {
+    display: block;
+    position: relative;
+    background-color: darkgray;
+    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--primary-color);
+    padding: 2rem;
+}
+
+input.hamburgerChecker {
+    display: none;
+}
+
+input.hamburgerChecker:checked + .top-header .hamburger-icon .line-1 {
+    transform: scaleX(0);
+}
+
+input.hamburgerChecker:checked + .top-header .hamburger-icon span:not(.line-1) {
+    top: 14px;
+}
+
+input.hamburgerChecker:checked + .top-header .hamburger-icon span.line-0 {
+    transform: rotate(-135deg) scaleX(75%);
+}
+
+input.hamburgerChecker:checked + .top-header .hamburger-icon span.line-2 {
+    transform: rotate(135deg) scaleX(75%);
+}
+
+input.hamburgerChecker:checked + .top-header .top-nav {
+    transform: translateY(5rem) scaleY(1);
+    height: initial;
+}
+
+input.hamburgerChecker:checked + .top-header + .main-content {
+    margin-top: 7rem;
+}
+
+.top-header {
+    position: relative;
+}
+
+.logo {
+    display: block;
+    position: relative;
+}
+
+.logoText {
+    position: absolute;
+    top: 1.9rem;
+    left: 0.6rem;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.logo::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: 50%;
+    border: 0.2rem solid black;
+    border-top: 0.2rem solid transparent;
+    margin-top: 1.6rem;
+    animation-name: rotating;
+    animation-timing-function: linear;
+    animation-duration: 400ms;
+    animation-delay: 4ms;
+    animation-direction: reverse;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+}
+
+label.hamburger-icon {
+    display: flex;
+    justify-content: end;
+    position: relative;
+    top: 1.5rem;
+    right: 0;
+    transition: all 400ms ease-out 4ms;
+}
+
+span[class |= 'line'] {
+    display: block;
+    position: absolute;
+    min-width: 30px;
+    min-height: 2px;
+    background-color: black;
+    transition: all 400ms ease-in 4ms;
+}
+
+span.line-0 {
+    top: 7px;
+}
+
+span.line-1 {
+    top: 14px;
+}
+
+span.line-2 {
+    top: 21px;
+}
+
+.top-nav {
+    transition: all 400ms linear 4ms;
+    height: 0;
+    transform: translateY(-100%) scaleY(0);
+}
+
+.navItem {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.navLink {
+    display: block;
+    padding: 1.2rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5rem;
+    color: black;
+    text-align: center;
+    transition: all 400ms ease-in-out 4ms;
+}
+
+.navLink:hover {
+    box-shadow: 0 1rem 2rem white;
+}
+
+.navLink:active {
+    background-color: black;
+    color: white;
+    transition: none;
+}
+
+.main-content {
+    transition: all 400ms ease-in 4ms;
+    margin-top: 5rem;
+}
+
+.content {
+    padding: 2rem 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 0.5rem;
+    margin: 0 0 2.5rem 0;
+}
+
+.content:not(.services) {
+    background-color: black;
+    color: var(--primary-color);
+    border-radius: 0.5rem;
+}
+
+.content:not(.services),
+div [class |= 'service'] {
+    box-shadow: 0 0 0.5rem black,
+    0.1rem 0.2rem 0.3rem black;
+}
+
+.content h1 {
+    margin: 1.5rem 2rem;
+    font-weight: 100;
+}
+
+.services h1 {
+    color: black;
+}
+
+.serviceWrapper {
+    display: block;
+}
+
+div[class |= 'service'] {
+    display: block;
+    padding: 2rem 1.2rem;
+    margin: 0 0 1.5rem 0;
+    background-color: black;
+    border-radius: 0.5rem;
+    color: darkgray;
+}
+
+div[class |= 'service'] h2 {
+    padding: 1.5rem 0.6rem;
+    font-weight: 300;
+}
+
+div[class |= 'service'] span:not(.etc) {
+    display: block;
+    transform-origin: top;
+    height: 0;
+    transform: scaleY(0);
+    transition: all 400ms ease 4ms;
+}
+
+div[class |= 'service'] .etc {
+    display: block;
+    transform-origin: left;
+    transition: all 400ms ease 4ms;
+}
+
+div[class |= 'service']:hover .etc {
+    transform: scaleX(0);
+    width: 0;
+    height: 0;
+}
+
+div[class |= 'service']:hover span:not(.etc) {
+    height: initial;
+    transform: scaleY(1);
+}

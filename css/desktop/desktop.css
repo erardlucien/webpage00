@@ -1,0 +1,44 @@
+@media screen and (min-width: 40em) {
+    label.hamburger-icon {
+        transform: scale(0);
+    }
+
+    .top-nav {
+        display: flex;
+        justify-content: end;
+        padding: 1.2rem 1.5rem;
+        transform: translateX(0) scaleY(1);
+    }
+    
+    .top-nav .nav-menu {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navItem {
+        margin-bottom: 0;
+    }
+
+    .navLink {
+        margin: 0 0 0 2rem;
+    }
+
+    .navLink:focus {
+        box-shadow: 0 1rem 2rem black;
+        outline: none;
+    }
+    
+
+    .main-content {
+        margin-top: 5rem;
+    }
+
+    .serviceWrapper {
+        display: flex;
+    }
+
+    div[class |= 'service'] {
+        margin: 0 1.5rem 0 0;
+    }
+    
+}
