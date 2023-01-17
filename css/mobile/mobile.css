@@ -8,13 +8,15 @@
 }
 
 :root {
-    --primary-color: darkgray;
+    --primary-color: white;
+    --secondary-color: black;
+    --background-color: rgb(216, 230, 236);
 }
 
 body {
     display: block;
     position: relative;
-    background-color: darkgray;
+    background-color: var(--background-color);
     min-height: 100vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--primary-color);
@@ -64,7 +66,7 @@ input.hamburgerChecker:checked + .top-header + .main-content {
     top: 1.9rem;
     left: 0.6rem;
     font-size: 1.2rem;
-    color: black;
+    color: var(--secondary-color);
 }
 
 .logo::before {
@@ -76,7 +78,7 @@ input.hamburgerChecker:checked + .top-header + .main-content {
     min-width: 2rem;
     min-height: 2rem;
     border-radius: 50%;
-    border: 0.2rem solid black;
+    border: 0.2rem solid var(--secondary-color);
     border-top: 0.2rem solid transparent;
     margin-top: 1.6rem;
     animation-name: rotating;
@@ -102,7 +104,7 @@ span[class |= 'line'] {
     position: absolute;
     min-width: 30px;
     min-height: 2px;
-    background-color: black;
+    background-color: var(--secondary-color);
     transition: all 400ms ease-in 4ms;
 }
 
@@ -135,13 +137,13 @@ span.line-2 {
     text-decoration: none;
     font-size: 1.2rem;
     border-radius: 5rem;
-    color: black;
+    color: var(--secondary-color);
     text-align: center;
     transition: all 400ms ease-in-out 4ms;
 }
 
 .navLink:active {
-    background-color: black;
+    background-color: var(--secondary-color);
     color: white;
     transition: none;
 }
@@ -159,15 +161,15 @@ span.line-2 {
 }
 
 .content:not(.services) {
-    background-color: black;
+    background-color: var(--secondary-color);
     color: var(--primary-color);
     border-radius: 0.5rem;
 }
 
 .content:not(.services),
 div [class |= 'service'] {
-    box-shadow: 0 0 0.5rem black,
-    0.1rem 0.2rem 0.3rem black;
+    box-shadow: 0 0 0.5rem var(--secondary-color),
+    0.1rem 0.2rem 0.3rem var(--secondary-color);
 }
 
 .content h1 {
@@ -176,7 +178,7 @@ div [class |= 'service'] {
 }
 
 .services h1 {
-    color: black;
+    color: var(--secondary-color);
 }
 
 .serviceWrapper {
@@ -187,9 +189,9 @@ div[class = 'service'] {
     display: block;
     padding: 2rem 1.2rem;
     margin: 0 0 1.5rem 0;
-    background-color: black;
+    background-color: var(--secondary-color);
     border-radius: 0.5rem;
-    color: darkgray;
+    color: var(--primary-color);
 }
 
 div[class = 'service'] h2 {
