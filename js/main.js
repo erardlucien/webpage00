@@ -25,9 +25,15 @@ for(let index = 0; index < navLinks.length; ++index)
 
 if(!desktopView.matches) {
     for(let service of services) {
-        service.addEventListener('click', function(){
+        service.addEventListener('click', function() {
             if(service.getAttribute('data-status') === 'reduced') {
                 service.setAttribute('data-status', 'expanded');
+            } else {
+                service.setAttribute('data-status', 'reduced');
+                scrollBy({
+                    behavior: 'smooth',
+                    top: service.getBoundingClientRect().top
+                });
             }
         });
     }
