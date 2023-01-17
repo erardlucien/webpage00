@@ -255,15 +255,18 @@ span[class |= 'gotop-line'] {
     background-color: white;
     position: absolute;
     top: 1rem;
-    border-radius: 2px;
 }
 
 span.gotop-line-1 {
-    transform: translateX(-7px) rotate(-45deg);
+    transform: translateX(-0.4rem) rotate(-45deg);
     left: 0.5rem;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
 }
 
 span.gotop-line-2 {
-    transform: translateX(7px) rotate(45deg);
+    transform: translateX(0.4rem) rotate(45deg);
     right: 0.5rem;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
 }
