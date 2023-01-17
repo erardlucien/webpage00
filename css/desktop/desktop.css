@@ -41,8 +41,25 @@
         display: flex;
     }
 
-    div[class |= 'service'] {
+    div[class = 'service'] {
         margin: 0 1.5rem 0 0;
     }
+
+    div[class = 'service']:hover .etc {
+        animation-name: none;
+    }
     
+    div[class = 'service']:hover span:not(.etc) {
+        height: initial;
+        transform: scaleY(1);
+    }
+
+    div[data-status = 'expanded'] .etc {
+        animation-name: goBigger;
+    }
+    
+    div[data-status = 'expanded'] span:not(.etc) {
+        height: 0;
+        transform: scaleY(0);
+    }
 }
