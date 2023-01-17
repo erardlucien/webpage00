@@ -259,11 +259,11 @@ span[class |= 'gotop-line'] {
 }
 
 span.gotop-line-1 {
-    transform: translateX(-6px) rotate(-45deg);
+    transform: translateX(-7px) rotate(-45deg);
     left: 0.5rem;
 }
 
 span.gotop-line-2 {
-    transform: translateX(6px) rotate(45deg);
+    transform: translateX(7px) rotate(45deg);
     right: 0.5rem;
 }
