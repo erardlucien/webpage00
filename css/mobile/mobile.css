@@ -43,11 +43,6 @@ input.hamburgerChecker:checked + .top-header .hamburger-icon span.line-2 {
     transform: rotate(135deg) scaleX(75%);
 }
 
-input.hamburgerChecker:checked + .top-header .top-nav {
-    transform: translateY(5rem) scaleY(1);
-    height: initial;
-}
-
 input.hamburgerChecker:checked + .top-header + .main-content {
     margin-top: 7rem;
 }
@@ -124,6 +119,11 @@ span.line-2 {
     transition: all 400ms linear 4ms;
     height: 0;
     transform: translateY(-100%) scaleY(0);
+}
+
+.top-nav[data-opened = 'true'] {
+    transform: translateY(5rem) scaleY(1);
+    height: initial;
 }
 
 .navItem {
