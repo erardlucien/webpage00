@@ -51,8 +51,18 @@
         outline: none;
     }
 
+    button.etc:active {
+        background-color: green;
+        outline: none;
+    }
+
     a.gotop:focus {
         background-color: orange;
         outline: none;
     }
+
+    a.gotop:active {
+        background-color: green;
+    }
+    
 }
