@@ -1,4 +1,4 @@
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 80em) {
     label.hamburger-icon {
         transform: scale(0);
     }
@@ -43,23 +43,16 @@
 
     div[class = 'service'] {
         margin: 0 1.5rem 0 0;
+        min-width: 15rem;
     }
 
-    div[class = 'service']:hover .etc {
-        animation-name: none;
-    }
-    
-    div[class = 'service']:hover span:not(.etc) {
-        height: initial;
-        transform: scaleY(1);
+    button.etc:focus {
+        background-color: orange;
+        outline: none;
     }
 
-    div[data-status = 'expanded'] .etc {
-        animation-name: goBigger;
-    }
-    
-    div[data-status = 'expanded'] span:not(.etc) {
-        height: 0;
-        transform: scaleY(0);
+    a.gotop:focus {
+        background-color: orange;
+        outline: none;
     }
 }

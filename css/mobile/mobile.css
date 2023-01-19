@@ -10,7 +10,8 @@
 :root {
     --primary-color: white;
     --secondary-color: black;
-    --background-color: rgb(216, 230, 236);
+    --background-color: lightskyblue;
+    --background-color1: black;
 }
 
 body {
@@ -54,14 +55,15 @@ input.hamburgerChecker:checked + .top-header + .main-content {
 .logo {
     display: block;
     position: relative;
+    background-color: var(--background-color1);
 }
 
 .logoText {
     position: absolute;
     top: 1.9rem;
-    left: 0.6rem;
+    left: 0.8rem;
     font-size: 1.2rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .logo::before {
@@ -73,16 +75,9 @@ input.hamburgerChecker:checked + .top-header + .main-content {
     min-width: 2rem;
     min-height: 2rem;
     border-radius: 50%;
-    border: 0.2rem solid var(--secondary-color);
-    border-top: 0.2rem solid transparent;
+    border: 1rem solid var(--secondary-color);
+    border-top: 0.5rem solid transparent;
     margin-top: 1.6rem;
-    animation-name: rotating;
-    animation-timing-function: linear;
-    animation-duration: 400ms;
-    animation-delay: 4ms;
-    animation-direction: reverse;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
 }
 
 label.hamburger-icon {
@@ -161,7 +156,7 @@ span.line-2 {
 }
 
 .content:not(.services) {
-    background-color: var(--secondary-color);
+    background-color: var(--background-color1);
     color: var(--primary-color);
     border-radius: 0.5rem;
 }
@@ -189,7 +184,7 @@ div[class = 'service'] {
     display: block;
     padding: 2rem 1.2rem;
     margin: 0 0 1.5rem 0;
-    background-color: var(--secondary-color);
+    background-color: var(--background-color1);
     border-radius: 0.5rem;
     color: var(--primary-color);
 }
@@ -199,7 +194,7 @@ div[class = 'service'] h2 {
     font-weight: 300;
 }
 
-div[class = 'service'] span:not(.etc) {
+div[class = 'service'] span.text {
     display: block;
     transform-origin: top;
     height: 0;
@@ -209,30 +204,55 @@ div[class = 'service'] span:not(.etc) {
 
 div[class = 'service'] .etc {
     display: block;
-    transform-origin: left;
-    color: red;
-    width: 0;
-    height: 0;
-    transform: scale(0);
-    animation-name: goBigger;
-    animation-timing-function: ease-in-out;
-    animation-duration: 400ms;
-    animation-delay: 4ms;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-fill-mode: both;
+    float: right;
+    text-decoration: none;
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+div[class = 'service'] .etc::before,
+div[class = 'service'] .etc::after {
+    content: '';
+    display: block;
+    min-width: 0.8rem;
+    min-height: 0.3rem;
+    position: absolute;
+    top: 0.7rem;
+    background-color: black;
+}
+
+div[class = 'service'] .etc::before {
+    left: 0.3rem;
+    transform: rotate(-45deg);
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+div[class = 'service'] .etc::after {
+    right: 0.3rem;
+    transform: rotate(45deg);
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
 }
 
 div[data-status = 'expanded'] .etc {
-    animation-name: none;
+   transform: rotate(-180deg);
 }
 
-div[data-status = 'expanded'] span:not(.etc) {
+div[data-status = 'expanded'] span.text {
     height: initial;
     transform: scaleY(1);
 }
 
-span.gotop {
+button.etc:active {
+    background-color: green;
+    outline: none;
+}
+
+a.gotop {
     display: block;
     border-radius: 50%;
     min-height: 3rem;
@@ -244,7 +264,7 @@ span.gotop {
     right: 2rem;
 }
 
-span.gotop:active {
+a.gotop:active {
     background-color: green;
 }
 

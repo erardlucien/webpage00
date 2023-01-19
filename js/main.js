@@ -8,7 +8,7 @@ let linkedContents = document.querySelectorAll('.linkedContent');
 let services = document.querySelectorAll('.service');
 let state = ['false', 'true'];
 let dataStatus = ['reduced', 'expanded'];
-let desktopView = window.matchMedia('(min-width: 40em)');
+let etcs = document.querySelectorAll('.etc');
 let goTop = document.querySelector('.gotop');
 let topMainPage = document.querySelector('#top-main-page');
 
@@ -46,21 +46,20 @@ for(let index = 0; index < navLinks.length; ++index)
     });
 }
 
-if(!desktopView.matches) {
-    for(let service of services) {
-        service.addEventListener('click', function() {
-            if(service.getAttribute('data-status') === dataStatus[0]) {
-                service.setAttribute('data-status', dataStatus[1]);
-            } else {
-                service.setAttribute('data-status', dataStatus[0]);
-                scrollBy({
-                    behavior: 'smooth',
-                    top: service.getBoundingClientRect().top
-                });
-            }
-        });
-    }
+for(let index = 0; index < etcs.length; ++index) {
+    etcs[index].addEventListener('click', function() {
+    if(services[index].getAttribute('data-status') === dataStatus[0]) {
+        services[index].setAttribute('data-status', dataStatus[1]);
+    } else {
+        services[index].setAttribute('data-status', dataStatus[0]);
+        scrollBy({
+            behavior: 'smooth',
+            top: services[index].getBoundingClientRect().top
+            });
+        }
+    });
 }
+
 
 goTop.addEventListener('click', function() {
     scrollTo(
