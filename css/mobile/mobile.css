@@ -211,6 +211,7 @@ div[class = 'service'] .etc {
     border-radius: 50%;
     background-color: var(--primary-color);
     position: relative;
+    border: none;
 }
 
 div[class = 'service'] .etc::before,
@@ -225,14 +226,14 @@ div[class = 'service'] .etc::after {
 }
 
 div[class = 'service'] .etc::before {
-    left: 0.3rem;
+    left: 0.4rem;
     transform: rotate(-45deg);
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
 }
 
 div[class = 'service'] .etc::after {
-    right: 0.3rem;
+    right: 0.4rem;
     transform: rotate(45deg);
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
