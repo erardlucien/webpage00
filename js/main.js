@@ -61,7 +61,8 @@ for(let index = 0; index < etcs.length; ++index) {
 }
 
 
-goTop.addEventListener('click', function() {
+goTop.addEventListener('click', function(event) {
+    event.preventDefault();
     scrollTo(
         {
             behavior: 'smooth',
