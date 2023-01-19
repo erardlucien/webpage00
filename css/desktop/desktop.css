@@ -1,4 +1,28 @@
 @media screen and (min-width: 80em) {
+
+    a:has(.logo):focus {
+        outline: none;
+    }
+    
+    a:has(.logo):focus > .logo::before{
+        border: 1rem solid var(--primary-color);
+        border-top: 0.5rem solid transparent;
+    }
+    
+    a:has(.logo):active > .logo::before{
+        border: 1rem solid green;
+        border-top: 0.5rem solid transparent;
+    }
+    
+    a:has(.logo):focus .logoText {
+        color: black;
+    }
+    
+    a:has(.logo):active .logoText {
+        color: var(--primary-color);
+    }
+    
+
     label.hamburger-icon {
         transform: scale(0);
     }
