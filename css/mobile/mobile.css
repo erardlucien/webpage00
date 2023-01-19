@@ -218,7 +218,7 @@ div[class = 'service'] .etc::before,
 div[class = 'service'] .etc::after {
     content: '';
     display: block;
-    min-width: 0.8rem;
+    min-width: 1rem;
     min-height: 0.3rem;
     position: absolute;
     top: 0.7rem;
@@ -226,14 +226,14 @@ div[class = 'service'] .etc::after {
 }
 
 div[class = 'service'] .etc::before {
-    left: 0.4rem;
+    left: 0.25rem;
     transform: rotate(-45deg);
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
 }
 
 div[class = 'service'] .etc::after {
-    right: 0.4rem;
+    right: 0.25rem;
     transform: rotate(45deg);
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
