@@ -211,6 +211,7 @@ div[class = 'service'] .etc {
     border-radius: 50%;
     background-color: var(--primary-color);
     position: relative;
+    transform: rotate(180deg);
     border: none;
 }
 
@@ -240,7 +241,7 @@ div[class = 'service'] .etc::after {
 }
 
 div[data-status = 'expanded'] .etc {
-   transform: rotate(-180deg);
+   transform: rotate(0deg);
 }
 
 div[data-status = 'expanded'] span.text {
