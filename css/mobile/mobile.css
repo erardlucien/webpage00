@@ -10,18 +10,31 @@
 :root {
     --primary-color: white;
     --secondary-color: black;
-    --background-color: lightskyblue;
+    --background-color: rgba(135, 206, 250, 0.712);
     --background-color1: black;
 }
 
 body {
     display: block;
     position: relative;
-    background-color: var(--background-color);
+    background-image: linear-gradient(35deg, white, gray 35%, black);
     min-height: 100vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--primary-color);
     padding: 2rem;
+    z-index: 1;
+}
+
+body::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: var(--background-color);
+    z-index: -1;
 }
 
 input.hamburgerChecker {
@@ -89,11 +102,19 @@ label.hamburger-icon {
     transition: all 400ms ease-out 4ms;
 }
 
+label.hamburger-icon:focus {
+    outline: 0;
+}
+
+label.hamburger-icon:focus span[class |= 'line'] {
+    background-color: white;
+}
+
 span[class |= 'line'] {
     display: block;
     position: absolute;
-    min-width: 30px;
-    min-height: 2px;
+    min-width: 1.5rem;
+    min-height: 0.1rem;
     background-color: var(--secondary-color);
     transition: all 400ms ease-in 4ms;
 }
@@ -135,6 +156,15 @@ span.line-2 {
     color: var(--secondary-color);
     text-align: center;
     transition: all 400ms ease-in-out 4ms;
+}
+
+.navLink:hover {
+    box-shadow: 0 1rem 2rem red;
+}
+
+.navLink:focus {
+    box-shadow: 0 1rem 2rem black;
+    outline: none;
 }
 
 .navLink:active {
@@ -249,6 +279,29 @@ div[data-status = 'expanded'] span.text {
     transform: scaleY(1);
 }
 
+a:has(.logo):focus {
+    outline: none;
+}
+
+a:has(.logo):focus > .logo::before{
+    border: 1rem solid var(--primary-color);
+    border-top: 0.5rem solid transparent;
+}
+
+a:has(.logo):active > .logo::before{
+    border: 1rem solid green;
+    border-top: 0.5rem solid transparent;
+}
+
+a:has(.logo):focus .logoText {
+    color: black;
+}
+
+a:has(.logo):active .logoText {
+    color: var(--primary-color);
+}
+
+
 button.etc:active {
     background-color: green;
     outline: none;
@@ -268,6 +321,16 @@ a.gotop {
 
 a.gotop:active {
     background-color: green;
+}
+
+button.etc:focus {
+    background-color: orange;
+    outline: none;
+}
+
+a.gotop:focus {
+    background-color: orange;
+    outline: none;
 }
 
 span[class |= 'gotop-line'] {

@@ -11,6 +11,7 @@ let dataStatus = ['reduced', 'expanded'];
 let etcs = document.querySelectorAll('.etc');
 let goTop = document.querySelector('.gotop');
 let topMainPage = document.querySelector('#top-main-page');
+let desktopView = matchMedia('(min-width: 80em)');
 
 hamburgerIcon.addEventListener('click', () => {
     
@@ -70,3 +71,19 @@ goTop.addEventListener('click', function(event) {
         }
     );
 });
+
+function onResize()  {
+    if(!desktopView.matches) {
+        navLinks.forEach((navLink) => {
+            navLink.setAttribute('tabindex', '-1');
+        });
+        hamburgerIcon.setAttribute('tabindex', '0');
+    } else {
+        navLinks.forEach((navLink) => {
+            navLink.setAttribute('tabindex', '0');
+        });
+        hamburgerIcon.setAttribute('tabindex', '-1');
+    }
+}
+
+window.addEventListener('resize', onResize);
