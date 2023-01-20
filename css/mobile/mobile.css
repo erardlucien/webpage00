@@ -190,10 +190,6 @@ div [class |= 'service'] {
     font-weight: 100;
 }
 
-.services h1 {
-    color: var(--secondary-color);
-}
-
 .serviceWrapper {
     display: block;
 }
