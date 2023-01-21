@@ -10,19 +10,32 @@
 :root {
     --primary-color: white;
     --secondary-color: black;
-    --background-color: rgb(70, 179, 215);
+    --background-color: rgb(16, 188, 245);
     --background-color1: black;
 }
 
 body {
     display: block;
     position: relative;
-    background-image: linear-gradient(35deg, white, var(--background-color) 35%, gray 50%, var(--background-color));
+    background-image: linear-gradient(45deg, black 50%, rgba(0, 0, 255, 0.546));
     min-height: 100vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--primary-color);
     padding: 2rem;
     z-index: 1;
+}
+
+body::before {
+    content: '';
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: var(--background-color);
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 input.hamburgerChecker {
@@ -192,6 +205,10 @@ div [class |= 'service'] {
 
 .serviceWrapper {
     display: block;
+}
+
+.services h1 {
+    color: black;
 }
 
 div[class = 'service'] {
