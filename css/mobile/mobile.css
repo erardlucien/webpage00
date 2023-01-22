@@ -8,21 +8,25 @@
 }
 
 :root {
-    --primary-color: white;
+    --primary-color: rgba(255, 255, 255, 0.916);
     --secondary-color: black;
-    --background-color: rgb(16, 188, 245);
+    --background-color: rgb(9, 110, 144);
     --background-color1: black;
 }
 
 body {
     display: block;
     position: relative;
-    background-image: linear-gradient(45deg, black 50%, rgba(0, 0, 255, 0.546));
+    background-color: rgba(0, 0, 0, 0.537);
     min-height: 100vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--primary-color);
     padding: 2rem;
     z-index: 1;
+}
+
+button {
+    cursor: pointer;
 }
 
 body::before {
@@ -38,32 +42,30 @@ body::before {
     z-index: -1;
 }
 
-input.hamburgerChecker {
-    display: none;
-}
 
-input.hamburgerChecker:checked + .top-header .hamburger-icon .line-1 {
+
+.opened .line-1 {
     transform: scaleX(0);
 }
 
-input.hamburgerChecker:checked + .top-header .hamburger-icon span:not(.line-1) {
+.opened span:not(.line-1) {
     top: 14px;
 }
 
-input.hamburgerChecker:checked + .top-header .hamburger-icon span.line-0 {
+.opened span.line-0 {
     transform: rotate(-135deg) scaleX(75%);
 }
 
-input.hamburgerChecker:checked + .top-header .hamburger-icon span.line-2 {
+.opened span.line-2 {
     transform: rotate(135deg) scaleX(75%);
-}
-
-input.hamburgerChecker:checked + .top-header + .main-content {
-    margin-top: 7rem;
 }
 
 .top-header {
     position: relative;
+}
+
+.top-header:has(button.opened) ~ main.main-content {
+    margin-top: 8rem;
 }
 
 .logo {
@@ -94,20 +96,27 @@ input.hamburgerChecker:checked + .top-header + .main-content {
     margin-top: 1.6rem;
 }
 
-label.hamburger-icon {
+button.hamburger-button {
+    border: none;
     display: flex;
-    justify-content: end;
     position: relative;
-    top: 1.5rem;
-    right: 0;
-    transition: all 400ms ease-out 4ms;
+    float: right;
+    top: 1.7rem;
+    right: 2rem;
+    min-height: 2rem;
+    min-width: 2rem;
+    background-color: transparent;
+}
+
+button.hamburger-button:focus {
+    outline: none;
 }
 
 label.hamburger-icon:focus {
     outline: 0;
 }
 
-label.hamburger-icon:focus span[class |= 'line'] {
+button.hamburger-button:focus span[class |= 'line'] {
     background-color: white;
 }
 
@@ -115,9 +124,10 @@ span[class |= 'line'] {
     display: block;
     position: absolute;
     min-width: 1.5rem;
-    min-height: 0.1rem;
+    min-height: 0.2rem;
     background-color: var(--secondary-color);
     transition: all 400ms ease-in 4ms;
+    left: 0.25rem;
 }
 
 span.line-0 {
@@ -136,6 +146,7 @@ span.line-2 {
     transition: all 400ms linear 4ms;
     height: 0;
     transform: translateY(-100%) scaleY(0);
+    clear: both;
 }
 
 .top-nav[data-opened = 'true'] {

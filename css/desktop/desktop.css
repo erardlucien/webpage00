@@ -1,7 +1,7 @@
 @media screen and (min-width: 80em) {
 
-    label.hamburger-icon {
-        transform: scale(0);
+    button.hamburger-button {
+        display: none;
     }
 
     .top-nav {

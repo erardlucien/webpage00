@@ -2,7 +2,7 @@
 
 let topNav = document.querySelector('.top-nav');
 let hamburgerChecker = document.querySelector('.hamburgerChecker');
-let hamburgerIcon = document.querySelector('.hamburger-icon');
+let hamburgerButton = document.querySelector('.hamburger-button');
 let navLinks = document.querySelectorAll('.navLink');
 let linkedContents = document.querySelectorAll('.linkedContent');
 let services = document.querySelectorAll('.service');
@@ -12,18 +12,21 @@ let etcs = document.querySelectorAll('.etc');
 let goTop = document.querySelector('.gotop');
 let topMainPage = document.querySelector('#top-main-page');
 let desktopView = matchMedia('(min-width: 80em)');
+let className = 'opened';
 
-hamburgerIcon.addEventListener('click', () => {
+hamburgerButton.addEventListener('click', () => {
     
     if(topNav.getAttribute('data-opened') === state[0])
     {
         topNav.setAttribute('data-opened', state[1]);
+        hamburgerButton.classList.add(className);
         return;
     }
 
     if(topNav.getAttribute('data-opened') === state[1])
     {
         topNav.setAttribute('data-opened', state[0]);
+        hamburgerButton.classList.remove(className);
     }
 });
 
@@ -35,8 +38,9 @@ for(let index = 0; index < navLinks.length; ++index)
         if(topNav.getAttribute('data-opened') === state[1])
         {
             topNav.setAttribute('data-opened', state[0]);
-            hamburgerChecker.checked = false;
         }
+
+        hamburgerButton.classList.remove(className);
 
         scrollTo(
             {
@@ -77,12 +81,12 @@ function onResize()  {
         navLinks.forEach((navLink) => {
             navLink.setAttribute('tabindex', '-1');
         });
-        hamburgerIcon.setAttribute('tabindex', '0');
+        hamburgerButton.setAttribute('tabindex', '0');
     } else {
         navLinks.forEach((navLink) => {
             navLink.setAttribute('tabindex', '0');
         });
-        hamburgerIcon.setAttribute('tabindex', '-1');
+        hamburgerButton.setAttribute('tabindex', '-1');
     }
 }
 
