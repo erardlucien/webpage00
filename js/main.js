@@ -35,13 +35,6 @@ for(let index = 0; index < navLinks.length; ++index)
     navLinks[index].addEventListener('click', (event) => {
         event.preventDefault();
 
-        if(topNav.getAttribute('data-opened') === state[1])
-        {
-            topNav.setAttribute('data-opened', state[0]);
-        }
-
-        hamburgerButton.classList.remove(className);
-
         scrollTo(
             {
                 behavior: 'smooth',

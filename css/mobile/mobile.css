@@ -124,7 +124,7 @@ span[class |= 'line'] {
     display: block;
     position: absolute;
     min-width: 1.5rem;
-    min-height: 0.2rem;
+    min-height: 0.15rem;
     background-color: var(--secondary-color);
     transition: all 400ms ease-in 4ms;
     left: 0.25rem;
