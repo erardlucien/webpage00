@@ -102,7 +102,7 @@ button.hamburger-button {
     position: relative;
     float: right;
     top: 1.7rem;
-    right: 2rem;
+    right: 1rem;
     min-height: 2rem;
     min-width: 2rem;
     background-color: transparent;
@@ -124,7 +124,7 @@ span[class |= 'line'] {
     display: block;
     position: absolute;
     min-width: 1.5rem;
-    min-height: 0.15rem;
+    min-height: 0.12rem;
     background-color: var(--secondary-color);
     transition: all 400ms ease-in 4ms;
     left: 0.25rem;
