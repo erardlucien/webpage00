@@ -49,7 +49,7 @@ body::before {
 }
 
 .opened span:not(.line-1) {
-    top: 14px;
+    top: 1rem;
 }
 
 .opened span.line-0 {
@@ -112,10 +112,6 @@ button.hamburger-button:focus {
     outline: none;
 }
 
-label.hamburger-icon:focus {
-    outline: 0;
-}
-
 button.hamburger-button:focus span[class |= 'line'] {
     background-color: white;
 }
@@ -124,22 +120,22 @@ span[class |= 'line'] {
     display: block;
     position: absolute;
     min-width: 1.5rem;
-    min-height: 0.11rem;
+    min-height: 0.15rem;
     background-color: var(--secondary-color);
     transition: all 400ms ease-in 4ms;
     left: 0.25rem;
 }
 
 span.line-0 {
-    top: 7px;
+    top: 0.5rem;
 }
 
 span.line-1 {
-    top: 14px;
+    top: 1rem;
 }
 
 span.line-2 {
-    top: 21px;
+    top: 1.5rem;
 }
 
 .top-nav {
@@ -327,8 +323,8 @@ a.gotop {
     background-color: darkgray;
     border: 3px solid white;
     position: fixed;
-    bottom: 4rem;
-    right: 2rem;
+    bottom: 1rem;
+    right: 0.2rem;
 }
 
 a.gotop:active {
