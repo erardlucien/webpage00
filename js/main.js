@@ -52,7 +52,7 @@ for(let index = 0; index < etcs.length; ++index) {
         services[index].setAttribute('data-status', dataStatus[0]);
         scrollBy({
             behavior: 'smooth',
-            top: services[index].getBoundingClientRect().top
+            top: services[index].getBoundingClientRect().top - 16
             });
         }
     });

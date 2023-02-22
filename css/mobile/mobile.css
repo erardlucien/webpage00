@@ -8,34 +8,22 @@
 }
 
 :root {
-    --primary-color: rgba(255, 255, 255, 0.916);
-    --secondary-color: black;
-    --background-color: rgb(9, 110, 144);
-    --background-color1: black;
+    --primary-color: rgb(32, 42, 46);
+    --secondary-color: rgb(0, 0, 0);
+    --ternary-color: rgb(255, 255, 255);
+    --background-color: rgb(183, 210, 224);
+    --background-color1: rgb(156, 201, 223);
 }
 
 body {
     display: block;
     position: relative;
-    background-image: linear-gradient(90deg, white 35%, gray);
+    background: var(--background-color);
     min-height: 100vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--primary-color);
     padding: 2rem;
     z-index: 1;
-}
-
-body::before {
-    content: '';
-    display: block;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: var(--background-color);
-    opacity: 0.5;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
 }
 
 button {
@@ -72,7 +60,7 @@ a.logo {
     justify-content: center;
     align-items: center;
     position: relative;
-    color: white;
+    color: var(--ternary-color);
     float: left;
     top: 1.7rem;
     left: 1rem;
@@ -94,17 +82,17 @@ a.logo::before {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 1rem solid black;
+    border: 1rem solid var(--primary-color);
     border-top: 0.5rem solid transparent;
     z-index: -1;
 }
 
 a.logo:focus {
-    color: black;
+    color: var(--primary-color);
 }
 
 a.logo:focus::before {
-    border: 1rem solid white;
+    border: 1rem solid var(--ternary-color);
     border-top: 0.5rem solid transparent;
 }
 
@@ -125,7 +113,7 @@ button.hamburger-button:focus {
 }
 
 button.hamburger-button:focus span[class |= 'line'] {
-    background-color: white;
+    background-color: var(--ternary-color);
 }
 
 span[class |= 'line'] {
@@ -173,7 +161,7 @@ span.line-2 {
     text-decoration: none;
     font-size: 1.2rem;
     border-radius: 5rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-align: center;
     transition: all 400ms ease-in-out 4ms;
 }
@@ -183,14 +171,14 @@ span.line-2 {
 }
 
 .navLink:focus {
-    box-shadow: 0 1rem 2rem black;
+    box-shadow: 0 1rem 2rem var(--primary-color);
     outline-style: solid; 
     outline-color: transparent;
 }
 
 .navLink:active {
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--ternary-color);
     transition: none;
 }
 
@@ -212,12 +200,6 @@ span.line-2 {
     border-radius: 0.5rem;
 }
 
-.content:not(.services),
-div [class |= 'service'] {
-    box-shadow: 0 0 0.5rem var(--secondary-color),
-    0.1rem 0.2rem 0.3rem var(--secondary-color);
-}
-
 .content h1 {
     margin: 1.5rem 2rem;
     font-weight: 100;
@@ -228,21 +210,32 @@ div [class |= 'service'] {
 }
 
 .services h1 {
-    color: black;
+    color: var(--primary-color);
 }
 
 div[class = 'service'] {
     display: block;
+    position: relative;
     padding: 2rem 1.2rem;
     margin: 0 0 1.5rem 0;
     background-color: var(--background-color1);
     border-radius: 0.5rem;
     color: var(--primary-color);
+    height: 14rem;
+    transition: height 400ms ease-in 4ms;
+}
+
+div[data-status = 'expanded'] {
+    height: initial;
 }
 
 div[class = 'service'] h2 {
     padding: 1.5rem 0.6rem;
     font-weight: 300;
+}
+
+div[class = 'service'] p {
+    margin-bottom: 2rem;
 }
 
 div[class = 'service'] span.text {
@@ -255,13 +248,14 @@ div[class = 'service'] span.text {
 
 div[class = 'service'] .etc {
     display: block;
-    float: right;
+    right: 1rem;
+    bottom: 1rem;
     text-decoration: none;
     min-width: 2rem;
     min-height: 2rem;
     border-radius: 50%;
-    background-color: var(--primary-color);
-    position: relative;
+    background-color: var(--ternary-color);
+    position: absolute;
     transform: rotate(180deg);
     border: none;
 }
@@ -274,7 +268,7 @@ div[class = 'service'] .etc::after {
     min-height: 0.3rem;
     position: absolute;
     top: 0.7rem;
-    background-color: black;
+    background-color: var(--primary-color);
 }
 
 div[class = 'service'] .etc::before {
@@ -312,10 +306,16 @@ a.gotop {
     min-height: 3rem;
     min-width: 3rem;
     background-color: darkgray;
-    border: 3px solid white;
+    border: 3px solid var(--ternary-color);
     position: fixed;
     bottom: 1rem;
     right: 0.2rem;
+}
+
+a.gotop:focus {
+    background-color: orange;
+    outline-style: solid;
+    outline-color: transparent;
 }
 
 a.gotop:active {
@@ -328,17 +328,11 @@ button.etc:focus {
     outline-color: transparent;
 }
 
-a.gotop:focus {
-    background-color: orange;
-    outline-style: solid;
-    outline-color: transparent;
-}
-
 span[class |= 'gotop-line'] {
     min-width: 1.5rem;
     min-height: 0.2rem;
     display: block;
-    background-color: white;
+    background-color: var(--ternary-color);
     position: absolute;
     top: 1rem;
 }
