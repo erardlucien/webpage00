@@ -92,7 +92,6 @@ function onResize()  {
     if(desktopView.matches) {
         makeNavLinkSelelectable();
         hamburgerButton.setAttribute('tabindex', '-1');
-        topNav.setAttribute(dataOpened, '');
         hamburgerButton.classList.remove(className);
     } else {
         topNav.setAttribute(dataOpened, state[0]);
