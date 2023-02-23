@@ -7,6 +7,7 @@ let navLinks = document.querySelectorAll('.navLink');
 let linkedContents = document.querySelectorAll('.linkedContent');
 let services = document.querySelectorAll('.service');
 let state = ['false', 'true'];
+let dataOpened = 'data-opened';
 let dataStatus = ['reduced', 'expanded'];
 let etcs = document.querySelectorAll('.etc');
 let goTop = document.querySelector('.gotop');
@@ -14,25 +15,37 @@ let topMainPage = document.querySelector('#top-main-page');
 let desktopView = matchMedia('(min-width: 80em)');
 let className = 'opened';
 
+function makeNavLinkSelelectable() {
+    navLinks.forEach((navLink) => {
+        navLink.setAttribute('tabindex', '0');
+    });
+}
+
+function makeNavLinkUnselectable() {
+    navLinks.forEach((navLink) => {
+        navLink.setAttribute('tabindex', '-1');
+    });
+}
+
 function closeMenu() {
-    if(topNav.getAttribute('data-opened') === state[1])
+    if(topNav.getAttribute(dataOpened) === state[1])
     {
-        topNav.setAttribute('data-opened', state[0]);
+        topNav.setAttribute(dataOpened, state[0]);
         hamburgerButton.classList.remove(className);
+        makeNavLinkUnselectable();
     }
 }
 
 hamburgerButton.addEventListener('click', () => {
     
-    if(topNav.getAttribute('data-opened') === state[0])
+    if(topNav.getAttribute(dataOpened) === state[0])
     {
-        topNav.setAttribute('data-opened', state[1]);
+        topNav.setAttribute(dataOpened, state[1]);
         hamburgerButton.classList.add(className);
+            makeNavLinkSelelectable();
         return;
     }
-
     closeMenu();
-
 });
 
 for(let index = 0; index < navLinks.length; ++index)
@@ -76,19 +89,15 @@ goTop.addEventListener('click', function(event) {
 });
 
 function onResize()  {
-    if(!desktopView.matches) {
-        navLinks.forEach((navLink) => {
-            navLink.setAttribute('tabindex', '-1');
-        });
-        hamburgerButton.setAttribute('tabindex', '0');
-        topNav.setAttribute('data-opened', 'false');
-    } else {
-        navLinks.forEach((navLink) => {
-            navLink.setAttribute('tabindex', '0');
-        });
+    if(desktopView.matches) {
+        makeNavLinkSelelectable();
         hamburgerButton.setAttribute('tabindex', '-1');
-        topNav.setAttribute('data-opened', '');
+        topNav.setAttribute(dataOpened, '');
         hamburgerButton.classList.remove(className);
+    } else {
+        topNav.setAttribute(dataOpened, state[0]);
+        hamburgerButton.setAttribute('tabindex', '0');
+        makeNavLinkUnselectable();
     }
 }
 

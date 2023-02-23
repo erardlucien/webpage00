@@ -154,6 +154,9 @@ span.line-2 {
 
 .top-nav[data-opened = 'true'] > .nav-menu {
     transform: translateY(6rem);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--ternary-color);
 }
 
 .navItem {
