@@ -4,17 +4,20 @@
         display: none;
     }
 
-    .top-nav {
-        display: flex;
-        justify-content: end;
-        position: relative;
-        top: -1.2rem;
-        transform: translateX(0) scaleY(1);
+    .top-nav[data-opened = 'false'] {
+        height: initial;
+        clear: none;
     }
-    
-    .top-nav .nav-menu {
+
+    .top-nav[data-opened = 'true'] > .nav-menu {
+        transform: translateY(1rem);
+    }
+
+    .top-nav > .nav-menu {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+        transform: translateY(1rem);
+        transition: all 400ms linear 4ms;
     }
 
     .navItem {

@@ -14,6 +14,14 @@ let topMainPage = document.querySelector('#top-main-page');
 let desktopView = matchMedia('(min-width: 80em)');
 let className = 'opened';
 
+function closeMenu() {
+    if(topNav.getAttribute('data-opened') === state[1])
+    {
+        topNav.setAttribute('data-opened', state[0]);
+        hamburgerButton.classList.remove(className);
+    }
+}
+
 hamburgerButton.addEventListener('click', () => {
     
     if(topNav.getAttribute('data-opened') === state[0])
@@ -23,17 +31,16 @@ hamburgerButton.addEventListener('click', () => {
         return;
     }
 
-    if(topNav.getAttribute('data-opened') === state[1])
-    {
-        topNav.setAttribute('data-opened', state[0]);
-        hamburgerButton.classList.remove(className);
-    }
+    closeMenu();
+
 });
 
 for(let index = 0; index < navLinks.length; ++index)
 {
     navLinks[index].addEventListener('click', (event) => {
         event.preventDefault();
+        
+        closeMenu();
 
         scrollTo(
             {
@@ -58,7 +65,6 @@ for(let index = 0; index < etcs.length; ++index) {
     });
 }
 
-
 goTop.addEventListener('click', function(event) {
     event.preventDefault();
     scrollTo(
@@ -75,11 +81,14 @@ function onResize()  {
             navLink.setAttribute('tabindex', '-1');
         });
         hamburgerButton.setAttribute('tabindex', '0');
+        topNav.setAttribute('data-opened', 'false');
     } else {
         navLinks.forEach((navLink) => {
             navLink.setAttribute('tabindex', '0');
         });
         hamburgerButton.setAttribute('tabindex', '-1');
+        topNav.setAttribute('data-opened', '');
+        hamburgerButton.classList.remove(className);
     }
 }
 

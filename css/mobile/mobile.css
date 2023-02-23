@@ -52,7 +52,7 @@ button {
 }
 
 .top-header:has(button.opened) ~ main.main-content {
-    margin-top: 8rem;
+    margin-top: 9rem;
 }
 
 a.logo {
@@ -138,16 +138,22 @@ span.line-2 {
     top: 1.5rem;
 }
 
-.top-nav {
-    transition: all 400ms linear 4ms;
+.top-nav[data-opened = 'false'] {
     height: 0;
-    transform: translateY(-100%) scaleY(0);
     clear: both;
 }
 
+.top-nav > .nav-menu {
+    transform: translateY(-200%);
+    transition: all 400ms linear 4ms;
+}
+
 .top-nav[data-opened = 'true'] {
-    transform: translateY(5rem) scaleY(1);
     height: initial;
+}
+
+.top-nav[data-opened = 'true'] > .nav-menu {
+    transform: translateY(6rem);
 }
 
 .navItem {
