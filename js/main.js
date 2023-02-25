@@ -42,7 +42,7 @@ hamburgerButton.addEventListener('click', () => {
     {
         topNav.setAttribute(dataOpened, state[1]);
         hamburgerButton.classList.add(className);
-            makeNavLinkSelelectable();
+        makeNavLinkSelelectable();
         return;
     }
     closeMenu();
@@ -94,7 +94,6 @@ function onResize()  {
         hamburgerButton.setAttribute('tabindex', '-1');
         hamburgerButton.classList.remove(className);
     } else {
-        topNav.setAttribute(dataOpened, state[0]);
         hamburgerButton.setAttribute('tabindex', '0');
         makeNavLinkUnselectable();
     }
